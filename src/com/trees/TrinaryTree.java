@@ -66,7 +66,7 @@ public class TrinaryTree {
 	}
 
 	/**
-	 * Delete node by searching for value from current
+	 * Delete node by searching for value from current node
 	 * 
 	 * @param value
 	 * @param current
