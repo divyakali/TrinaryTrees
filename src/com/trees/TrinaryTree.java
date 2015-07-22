@@ -133,6 +133,18 @@ public class TrinaryTree {
 		else
 			return false;
 	}
+	/**
+	 * Used to retrieve min value in a tree
+	 * 
+	 * @param node
+	 * @return
+	 */
+	public TrinaryNode findMinNode(TrinaryNode node) {
+		while (node.getLeft() != null)
+			node = node.getLeft();
+		
+		return node;
+	}
 
 	/**
 	 * Static method to convert tree to String Does a simple in-order traversal
@@ -178,18 +190,6 @@ public class TrinaryTree {
 	}
 
 
-	/**
-	 * Used to retrieve min value in a tree
-	 * 
-	 * @param node
-	 * @return
-	 */
-	public TrinaryNode findMinNode(TrinaryNode node) {
-		while (node.getLeft() != null)
-			node = node.getLeft();
-
-		return node;
-	}
 
 	/**
 	 * @return the head

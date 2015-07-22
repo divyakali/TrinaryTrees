@@ -8,6 +8,7 @@ package com.trees;
  *
  */
 public class TrinaryNode {
+
 	private int data;
 	private TrinaryNode left;
 	private TrinaryNode middle;
@@ -15,12 +16,12 @@ public class TrinaryNode {
 
 	/**
 	 * Constructor to create a trinary node with data
+	 * 
 	 * @param data
 	 */
 	public TrinaryNode(int data) {
 		this.data = data;
 	}
-
 
 	/**
 	 * @return the data
@@ -81,6 +82,5 @@ public class TrinaryNode {
 	public void setRight(TrinaryNode right) {
 		this.right = right;
 	}
-
 
 }
