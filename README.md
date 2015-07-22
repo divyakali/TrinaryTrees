@@ -50,7 +50,8 @@ Testing is very important and you must test all cases of deletions to ensure wor
 
 <br/><br/>
 ###Future/Limitations:###
-Implement auto-balancing. Worst case time complexities arise when the search trees form a single linked list(tree without branches). Auto balancing will reduce the time complexity of worst case.
+Implement auto-balancing. Worst case time complexities arise when the search trees form a single linked list(tree without branches). Auto balancing will reduce the time complexity of worst case. If we want it to work for any data type, we can do so by changing the Trinary Node class to have a generic data type and changing the comparison logic.
+
 
 <br/>
 
