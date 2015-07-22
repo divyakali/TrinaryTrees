@@ -8,7 +8,7 @@ package com.trees;
  *
  */
 public class TrinaryNode {
-	private Integer data;
+	private int data;
 	private TrinaryNode left;
 	private TrinaryNode middle;
 	private TrinaryNode right;
@@ -17,7 +17,7 @@ public class TrinaryNode {
 	 * Constructor to create a trinary node with data
 	 * @param data
 	 */
-	public TrinaryNode(Integer data) {
+	public TrinaryNode(int data) {
 		this.data = data;
 	}
 
@@ -25,7 +25,7 @@ public class TrinaryNode {
 	/**
 	 * @return the data
 	 */
-	public Integer getData() {
+	public int getData() {
 		return data;
 	}
 
@@ -33,7 +33,7 @@ public class TrinaryNode {
 	 * @param data
 	 *            the data to set
 	 */
-	public void setData(Integer data) {
+	public void setData(int data) {
 		this.data = data;
 	}
 

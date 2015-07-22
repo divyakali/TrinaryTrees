@@ -4,7 +4,11 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
+/**
+ * Test for ternary tree class
+ * @author aethena
+ *
+ */
 public class TrinaryTreeTest {
 	TrinaryNode head = null;
 	TrinaryTree tree = null;
@@ -47,6 +51,18 @@ public class TrinaryTreeTest {
 		tree.delete(7);
 		result = TrinaryTree.convertToString(head);
 		Assert.assertTrue(result.equals("2 4 5 9"));
+	}
+	
+	@Test
+	public void testfindMinNode() {
+		TrinaryNode actual = tree.findMinNode(head);
+		Assert.assertEquals("Min mode not matching expected value",2,actual.getData());
+	}
+	@Test
+	public void testIsEmpty() {
+		Assert.assertFalse("Tree not supposed to be empty",tree.isEmpty());
+		tree= new TrinaryTree();
+		Assert.assertTrue("Tree supposed to be empty",tree.isEmpty());
 	}
 
 	/**

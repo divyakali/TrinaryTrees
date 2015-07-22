@@ -96,7 +96,7 @@ public class TrinaryTree {
 			} else if (current.getMiddle() == null) {
 				// replace current node with max node of right tree
 				if (current.getRight() != null) {
-					TrinaryNode temp = retrieveMinNode(current.getRight());
+					TrinaryNode temp = findMinNode(current.getRight());
 					current.setData(temp.getData());
 					current.setRight(deleteNode(temp.getData(),
 							current.getRight()));
@@ -184,7 +184,7 @@ public class TrinaryTree {
 	 * @param node
 	 * @return
 	 */
-	private TrinaryNode retrieveMinNode(TrinaryNode node) {
+	public TrinaryNode findMinNode(TrinaryNode node) {
 		while (node.getLeft() != null)
 			node = node.getLeft();
 
