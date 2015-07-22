@@ -76,13 +76,21 @@ public class TrinaryTree {
 		// base case
 		if (current == null)
 			throw new IllegalArgumentException("Unable to find value");
+		// find value to delete in the left subtree if current node's data is
+		// greater than value
 		if (current.getData() > value) {
 			current.setLeft(deleteNode(value, current.getLeft()));
 		}
+		// find value to delete in the right subtree if current node's data is
+		// lesser than value
 		else if (current.getData() < value) {
 			current.setRight(deleteNode(value, current.getRight()));
 		}
+		// find value to delete in the middle subtree if current node's data is
+		// equal to value
 		else {
+			// if there is a middle subtree find value to delete at the end of
+			// middle tree
 			if (current.getMiddle() != null) {
 				current.setMiddle(deleteNode(value, current.getMiddle()));
 			} else if (current.getMiddle() == null) {
@@ -134,34 +142,34 @@ public class TrinaryTree {
 	 */
 	public static String convertToString(TrinaryNode head) {
 		String result = "";
-		TrinaryNode current = head;
+		TrinaryNode currentNode = head;
 		if (head == null) {
 			return "";
 		} else {
 			// get data
-			result = Integer.toString(current.getData());
+			result = Integer.toString(currentNode.getData());
 			// While the current node has any remaining subtree, recursively
 			// call this method to print the tree
-			if (current.getLeft() != null
-					|| current.getMiddle() != null
-					|| current.getRight() != null) {
+			if (currentNode.getLeft() != null
+					|| currentNode.getMiddle() != null
+					|| currentNode.getRight() != null) {
 				// print left subtree
-				if (current.getLeft() != null) {
-					if (!convertToString(current.getLeft()).equals(""))
-						result = convertToString(current.getLeft()) + " "
+				if (currentNode.getLeft() != null) {
+					if (!convertToString(currentNode.getLeft()).equals(""))
+						result = convertToString(currentNode.getLeft()) + " "
 								+ result;
 
 				}
 				// print middle subtree
-				if (current.getMiddle() != null) {
-					if (!convertToString(current.getMiddle()).equals(""))
+				if (currentNode.getMiddle() != null) {
+					if (!convertToString(currentNode.getMiddle()).equals(""))
 						result += " "
-								+ convertToString(current.getMiddle());
+								+ convertToString(currentNode.getMiddle());
 				}
 				// print right subtree
-				if (current.getRight() != null) {
-					if (!convertToString(current.getRight()).equals(""))
-						result += " " + convertToString(current.getRight());
+				if (currentNode.getRight() != null) {
+					if (!convertToString(currentNode.getRight()).equals(""))
+						result += " " + convertToString(currentNode.getRight());
 				}
 			}
 
