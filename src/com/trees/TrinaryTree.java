@@ -66,6 +66,55 @@ public class TrinaryTree {
 	}
 
 	/**
+	 * Delete node by searching for value from current
+	 * 
+	 * @param value
+	 * @param current
+	 * @return
+	 */
+	public TrinaryNode deleteNode(int value, TrinaryNode current) {
+		// base case
+		if (current == null)
+			throw new IllegalArgumentException("Unable to find value");
+		if (current.getData() > value) {
+			current.setLeft(deleteNode(value, current.getLeft()));
+		}
+		else if (current.getData() < value) {
+			current.setRight(deleteNode(value, current.getRight()));
+		}
+		else {
+			if (current.getMiddle() != null) {
+				current.setMiddle(deleteNode(value, current.getMiddle()));
+			} else if (current.getMiddle() == null) {
+				// replace current node with max node of right tree
+				if (current.getRight() != null) {
+					TrinaryNode temp = retrieveMinNode(current.getRight());
+					current.setData(temp.getData());
+					current.setRight(deleteNode(temp.getData(),
+							current.getRight()));
+				}
+				// if there is no right subtree replace current node with its
+				// left child
+				else {
+					current = current.getLeft();
+				}
+			}
+		}
+		return current;
+	}
+
+	/**
+	 * delete Node by searching from head
+	 * 
+	 * @param value
+	 * @return
+	 */
+	public TrinaryNode delete(int value) {
+		head = deleteNode(value, head);
+		return head;
+	}
+
+	/**
 	 * Check if tree is empty
 	 * 
 	 * @return
@@ -85,39 +134,53 @@ public class TrinaryTree {
 	 */
 	public static String convertToString(TrinaryNode head) {
 		String result = "";
-		TrinaryNode currentNode = head;
+		TrinaryNode current = head;
 		if (head == null) {
 			return "";
 		} else {
 			// get data
-			result = Integer.toString(currentNode.getData());
+			result = Integer.toString(current.getData());
 			// While the current node has any remaining subtree, recursively
 			// call this method to print the tree
-			if (currentNode.getLeft() != null
-					|| currentNode.getMiddle() != null
-					|| currentNode.getRight() != null) {
+			if (current.getLeft() != null
+					|| current.getMiddle() != null
+					|| current.getRight() != null) {
 				// print left subtree
-				if (currentNode.getLeft() != null) {
-					if (!convertToString(currentNode.getLeft()).equals(""))
-						result = convertToString(currentNode.getLeft()) + " "
+				if (current.getLeft() != null) {
+					if (!convertToString(current.getLeft()).equals(""))
+						result = convertToString(current.getLeft()) + " "
 								+ result;
 
 				}
 				// print middle subtree
-				if (currentNode.getMiddle() != null) {
-					if (!convertToString(currentNode.getMiddle()).equals(""))
+				if (current.getMiddle() != null) {
+					if (!convertToString(current.getMiddle()).equals(""))
 						result += " "
-								+ convertToString(currentNode.getMiddle());
+								+ convertToString(current.getMiddle());
 				}
 				// print right subtree
-				if (currentNode.getRight() != null) {
-					if (!convertToString(currentNode.getRight()).equals(""))
-						result += " " + convertToString(currentNode.getRight());
+				if (current.getRight() != null) {
+					if (!convertToString(current.getRight()).equals(""))
+						result += " " + convertToString(current.getRight());
 				}
 			}
 
 			return result;
 		}
+	}
+
+
+	/**
+	 * Used to retrieve min value in a tree
+	 * 
+	 * @param node
+	 * @return
+	 */
+	private TrinaryNode retrieveMinNode(TrinaryNode node) {
+		while (node.getLeft() != null)
+			node = node.getLeft();
+
+		return node;
 	}
 
 	/**
@@ -136,7 +199,6 @@ public class TrinaryTree {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 	}
 

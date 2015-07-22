@@ -13,9 +13,14 @@ public class TrinaryNode {
 	private TrinaryNode middle;
 	private TrinaryNode right;
 
-	public TrinaryNode(int data) {
+	/**
+	 * Constructor to create a trinary node with data
+	 * @param data
+	 */
+	public TrinaryNode(Integer data) {
 		this.data = data;
 	}
+
 
 	/**
 	 * @return the data
@@ -76,5 +81,6 @@ public class TrinaryNode {
 	public void setRight(TrinaryNode right) {
 		this.right = right;
 	}
+
 
 }

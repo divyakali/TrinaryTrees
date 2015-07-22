@@ -39,15 +39,24 @@ public class TrinaryTreeTest {
 		Assert.assertTrue(result.equals("2 2 3 4 5 5 7 9"));
 	}
 
+	@Test
+	public void testDelete() {
+		tree.delete(5);
+		String result = TrinaryTree.convertToString(head);
+		Assert.assertTrue(result.equals("2 4 5 7 9"));
+		tree.delete(7);
+		result = TrinaryTree.convertToString(head);
+		Assert.assertTrue(result.equals("2 4 5 9"));
+	}
+
 	/**
 	 * @param tree
-	 * @param values set of values to generate the tree
-	 *            to be initialized
+	 * @param values
+	 *            set of values to generate the tree to be initialized
 	 */
 	private void initialize(TrinaryTree tree, Integer... values) {
 		for (int value : values)
 			tree.insertNode(value);
 	}
-
 
 }
